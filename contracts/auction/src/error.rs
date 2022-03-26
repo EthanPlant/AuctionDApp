@@ -8,6 +8,10 @@ pub enum ContractError {
 
     #[error("Unauthorized")]
     Unauthorized {},
-    // Add any other custom errors you like here.
-    // Look at https://docs.rs/thiserror/1.0.21/thiserror/ for details.
+    
+    #[error("Owner cannot bid on their own auction")]
+    OwnerBidder {},
+
+    #[error("Bid must be higher than {bid} LUNA")]
+    BidTooLow { bid: f64 }
 }

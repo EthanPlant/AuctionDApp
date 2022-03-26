@@ -1,10 +1,10 @@
 #[cfg(not(feature = "library"))]
 use cosmwasm_std::entry_point;
-use cosmwasm_std::{to_binary, Binary, Deps, DepsMut, Env, MessageInfo, Response, StdResult};
+use cosmwasm_std::{to_binary, BankMsg, Binary, Deps, DepsMut, Env, MessageInfo, Response, StdResult};
 use cw2::set_contract_version;
 
 use crate::error::ContractError;
-use crate::msg::{CountResponse, ExecuteMsg, InstantiateMsg, QueryMsg};
+use crate::msg::{AuctionResponse, ExecuteMsg, InstantiateMsg, QueryMsg};
 use crate::state::{State, STATE};
 
 // version info for migration info
@@ -19,16 +19,25 @@ pub fn instantiate(
     msg: InstantiateMsg,
 ) -> Result<Response, ContractError> {
     let state = State {
-        count: msg.count,
-        owner: info.sender.clone(),
+        owner: info.clone().sender,
+        item_name: msg.item_name,
+        item_desc: msg.item_desc,
+        starting_price: msg.starting_price,
+        highest_bid: 0.0,
+        highest_bidder: info.clone().sender,
+        is_active: true,
     };
     set_contract_version(deps.storage, CONTRACT_NAME, CONTRACT_VERSION)?;
-    STATE.save(deps.storage, &state)?;
 
-    Ok(Response::new()
+    STATE.save(deps.storage, &state);
+
+    Ok(Response.new()
         .add_attribute("method", "instantiate")
         .add_attribute("owner", info.sender)
-        .add_attribute("count", msg.count.to_string()))
+        .add_attribute("item_name", msg.item_name)
+        .add_attribute("item_desc", msg.item_desc)
+        .add_attribute("starting_price", msg.starting_price.to_string())
+    )
 }
 
 #[cfg_attr(not(feature = "library"), entry_point)]
@@ -39,28 +48,70 @@ pub fn execute(
     msg: ExecuteMsg,
 ) -> Result<Response, ContractError> {
     match msg {
-        ExecuteMsg::Increment {} => try_increment(deps),
-        ExecuteMsg::Reset { count } => try_reset(deps, info, count),
+        ExecuteMsg::Bid { bid } => try_bid(deps, info, bid),
+        ExecuteMsg::Cancel {} => try_cancel(deps, info),
+        ExecuteMsg::EndAuction {} => try_end(deps, info),
     }
 }
 
-pub fn try_increment(deps: DepsMut) -> Result<Response, ContractError> {
-    STATE.update(deps.storage, |mut state| -> Result<_, ContractError> {
-        state.count += 1;
-        Ok(state)
+pub fn try_bid(
+    deps: DepsMut,
+    info: MessageInfo,
+    bid: f64,
+) -> Result<Response, ContractError> {
+    STATE.update(deps.storage, |mut state: State| -> Result<_, ContractError> {
+        if info.clone().sender == state.owner {
+            return Err(ContractError::OwnerBidder {});
+        }
+
+        if (bid <= state.highest_bid) {
+            Return Err(ContractError::BidTooLow { state.highest_bid });
+        }
+
+        if (bid < state.starting_price) {
+            Return Err(ContractError::BidTooLow { state.starting_price});
+        }
+
+        state.highest_bid = bid;
+        state.highest_bidder = info.clone().sender;
+        Ok(State)
     })?;
 
-    Ok(Response::new().add_attribute("method", "try_increment"))
+    Ok(Response::new()
+        .add_attribute("method", "bid")
+        .add_attribute("bidder", info.sender)
+        .add_attribute("bid_amount", bid.to_string())
+    )
 }
-pub fn try_reset(deps: DepsMut, info: MessageInfo, count: i32) -> Result<Response, ContractError> {
-    STATE.update(deps.storage, |mut state| -> Result<_, ContractError> {
+
+pub fn try_cancel(
+    deps: DepsMut,
+    info: MessageInfo,
+) -> Response<Response, ContractError> {
+    STATE.update(deps.storage, |mut state: State| -> Result<_, ContractError> {
         if info.sender != state.owner {
             return Err(ContractError::Unauthorized {});
         }
-        state.count = count;
-        Ok(state)
+
+        state.is_active = false;
+        Ok(state);
     })?;
-    Ok(Response::new().add_attribute("method", "reset"))
+
+    Ok(Response::new().add_attribute("method", "cancel"))
+}
+
+pub fn try_end(
+    deps: DepsMut,
+    info: MessageInfo,
+) -> Response<Response, ContractError> {
+    STATE.update(deps.storage, |mut state: State| -> Result<_, ContractError> {
+        if info.sender != state.owner {
+            return Err(ContractError::Unauthorized {});
+        }
+
+        state.is_active = false;
+        
+    });
 }
 
 #[cfg_attr(not(feature = "library"), entry_point)]

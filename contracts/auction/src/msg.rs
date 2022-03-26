@@ -27,7 +27,7 @@ pub enum QueryMsg {
 
 // We define a custom struct for each query response
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-pub struct CountResponse {
+pub struct AuctionResponse {
     pub item_name: String,
     pub item_desc: String,
     pub starting_price: f64,
