@@ -13,5 +13,5 @@ pub enum ContractError {
     OwnerBidder {},
 
     #[error("Bid must be higher than {bid} LUNA")]
-    BidTooLow { bid: f64 }
+    BidTooLow { bid: f64 },
 }
