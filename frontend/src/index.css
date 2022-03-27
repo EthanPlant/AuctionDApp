@@ -1,13 +1,44 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+		"coolvetica";
+	font-style: normal;
+	font-weight: 10;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
+} */
+
+* {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+		"coolvetica";
+	font-style: normal;
+	font-weight: 1;
+}
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+	font-family: "Coolvetica";
+	src: local("Coolvetica"), url("./fonts/coolvetica\ rg.otf");
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
+}
+
+input,
+button {
+	margin: 1px;
+}
+
+p {
+	font-size: 16px;
 }

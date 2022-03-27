@@ -2,13 +2,19 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "InstantiateMsg",
   "type": "object",
-  "required": [
-    "count"
-  ],
+  "required": ["item_name", "item_desc", "starting_price"],
   "properties": {
-    "count": {
-      "type": "integer",
-      "format": "int32"
+    "item_name": {
+      "type": "string",
+      "format": "string"
+    },
+    "item_desc": {
+      "type": "string",
+      "format": "string"
+    },
+    "starting_price": {
+      "type": "number",
+      "format": "number"
     }
   }
 }
