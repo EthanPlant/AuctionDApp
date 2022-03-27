@@ -1,0 +1,12 @@
+C:\dev\hackathon\AuctionDApp\contracts\counter\target\debug\deps\pkcs8-ee6cb51d7d916c90.rmeta: C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\lib.rs C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\attributes.rs C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\error.rs C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\private_key_info.rs C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\traits.rs C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\version.rs
+
+C:\dev\hackathon\AuctionDApp\contracts\counter\target\debug\deps\libpkcs8-ee6cb51d7d916c90.rlib: C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\lib.rs C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\attributes.rs C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\error.rs C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\private_key_info.rs C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\traits.rs C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\version.rs
+
+C:\dev\hackathon\AuctionDApp\contracts\counter\target\debug\deps\pkcs8-ee6cb51d7d916c90.d: C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\lib.rs C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\attributes.rs C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\error.rs C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\private_key_info.rs C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\traits.rs C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\version.rs
+
+C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\lib.rs:
+C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\attributes.rs:
+C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\error.rs:
+C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\private_key_info.rs:
+C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\traits.rs:
+C:\Users\chris\.cargo\registry\src\github.com-1ecc6299db9ec823\pkcs8-0.7.5\src\version.rs:

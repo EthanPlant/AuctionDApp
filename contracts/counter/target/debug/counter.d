@@ -1,0 +1,1 @@
+C:\dev\hackathon\AuctionDApp\contracts\counter\target\debug\counter.dll: C:\dev\hackathon\AuctionDApp\contracts\counter\src\contract.rs C:\dev\hackathon\AuctionDApp\contracts\counter\src\error.rs C:\dev\hackathon\AuctionDApp\contracts\counter\src\lib.rs C:\dev\hackathon\AuctionDApp\contracts\counter\src\msg.rs C:\dev\hackathon\AuctionDApp\contracts\counter\src\state.rs
