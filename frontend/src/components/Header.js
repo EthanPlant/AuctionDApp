@@ -14,5 +14,5 @@ export const Header = ({ title }) => {
 		</div>
 	);
 };
-Header.defaultProps = { title: "TemplateTitle" };
+Header.defaultProps = { title: "Traction" };
 Header.propTypes = { title: propTypes.string.isRequired };
